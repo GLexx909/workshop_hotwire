@@ -1,0 +1,12 @@
+<%# locals: (artist:, tracks:, page:, next_page:) -%>
+<%= render partial: "artists/header", locals: {artist:} %>
+
+<hr class="my-4">
+
+<div class="flex flex-row py-1 text-xsmall">
+  <h2 class="mt-4 text-header-2 flex-grow">Tracks</h2>
+</div>
+
+<ul class="tracks mt-2">
+  <%= render partial: 'tracks/lazy_list', locals: { artist:, tracks:, next_page:, page: } %>
+</ul>

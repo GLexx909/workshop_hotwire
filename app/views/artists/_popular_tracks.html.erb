@@ -1,0 +1,24 @@
+<%# locals: (artist:, albums:, tracks:) -%>
+<%= turbo_frame_tag :popular_tracks, target: "_top"  do %>
+  <div class="flex flex-row py-1 text-xsmall">
+    <h2 class="mt-4 text-header-2 flex-grow">Popular</h2>
+    <%= link_to 'See All',
+                tracks_artist_path(artist),
+                class: "text-secondary hover:text-primary transition-colors self-end w-10 ml-2 text-right",
+                style: "width: 50px"
+    %>
+  </div>
+
+  <ul class="tracks mt-2">
+    <%= render tracks, enqueueble: true %>
+    <li class="track">
+      <span class="track--number"></span>
+      <a href="#" class="text-secondary hover:text-primary transition-colors">Load more</a>
+    </li>
+  </ul>
+<% end %>
+
+
+<hr class="my-4"/>
+
+<%= render partial: "discography", locals: {artist:, albums:} %>

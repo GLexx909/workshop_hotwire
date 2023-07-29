@@ -1,0 +1,7 @@
+<%# locals: (artist:, tracks:, page:, next_page:) -%>
+<%= turbo_frame_tag "tracks_#{page}" do %>
+  <%= render tracks %>
+  <% if next_page %>
+    <%= render partial: 'tracks/next_page', locals: { artist:, tracks:, next_page: } %>
+  <% end %>
+<% end %>

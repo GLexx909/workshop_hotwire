@@ -1,0 +1,6 @@
+<%# locals: (artist:, tracks:, next_page:) -%>
+<%= turbo_frame_tag "tracks_#{next_page}",
+                    loading: :lazy,
+                    src: tracks_artist_path(artist, page: next_page),
+                    target: "_top"
+%>
