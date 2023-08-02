@@ -8,9 +8,9 @@ class ArtistsController < ApplicationController
       if turbo_frame_request_id =~ /discography/
         render partial: "discography", locals: {artist:, albums:}
       elsif turbo_frame_request_id =~ /popular_tracks/
-        tracks = artist.tracks.popularity_ordered.limit(params[:tracks_limit].to_i + 5)
+        tracks = artist.tracks.popularity_ordered.limit(10)
 
-        render partial: "popular_tracks", locals: {artist:, tracks:}
+        render partial: "popular_tracks", locals: {artist:, tracks:, extended_list: true}
       end
     else
       render action: :show, locals: {artist:, albums:, tracks:}
